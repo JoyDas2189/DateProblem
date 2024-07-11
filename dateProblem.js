@@ -1,40 +1,40 @@
-let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let myDate = new Date();
-  let current = myDate.getMonth();
+// let months = [
+//     "January",
+//     "February",
+//     "March",
+//     "April",
+//     "May",
+//     "June",
+//     "July",
+//     "August",
+//     "September",
+//     "October",
+//     "November",
+//     "December",
+//   ];
+//   let myDate = new Date();
+//   let current = myDate.getMonth();
   
-  let previous = [];
-  let previousIndex = 0;
-  let next = [];
-  let nextIndex = 0;
+//   let currentMonth = months[current];
+//   let previous = [];
+//   let previousIndex = 0;
+//   let next = [];
+//   let nextIndex = 0;
   
-  let currentMonth = months[current];
   
-  for (let i = 2; i > 0; i--) {
-    let prevMonthIndex = (current - i);
-    previous[previousIndex] = months[prevMonthIndex];
-    previousIndex++;
-  }
+//   for (let i = 2; i > 0; i--) {
+//     let prevMonthIndex = (current - i);
+//     previous[previousIndex] = months[prevMonthIndex];
+//     previousIndex++;
+//   }
   
-  for (let i = 1; i <= 3; i++) {
-    let nextMonthIndex = (current + i);
-    next[nextIndex] = months[nextMonthIndex];
-    nextIndex++;
-  }
+//   for (let i = 1; i <= 3; i++) {
+//     let nextMonthIndex = (current + i);
+//     next[nextIndex] = months[nextMonthIndex];
+//     nextIndex++;
+//   }
   
-  console.log(`${previous}, ${currentMonth}, ${next}`);
+//   console.log(`${previous}, ${currentMonth}, ${next}`);
   
 
 //   2. 
@@ -54,11 +54,12 @@ function calculateBirthday(day) {
       birthDay.getMonth(),
       birthDay.getDate()
     );
-  
+
     let remainingTime = nextBirthday - today;
-    let remainingMonths = nextBirthday.getMonth() - today.getMonth();
     let remainingDays = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-  
+    let remainingMonths = Math.floor(remainingDays / 30);
+    remainingDays = remainingDays % 30;
+    
     return {
       age,remainingMonths, remainingDays
     };
@@ -66,5 +67,5 @@ function calculateBirthday(day) {
   
   let day = ('1999-10-27');
   let birthDayOutput = calculateBirthday(day);
-  console.log(`${birthDayOutput.age} years old. ${birthDayOutput.remainingMonths} months, ${birthDayOutput.remainingDays} days ultil next birthday.`);
+  console.log(`${birthDayOutput.age} years old. ${birthDayOutput.remainingMonths} months, ${birthDayOutput.remainingDays} days ultill next birthday.`);
   
